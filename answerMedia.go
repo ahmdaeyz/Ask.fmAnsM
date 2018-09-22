@@ -64,7 +64,7 @@ func (media media) downloadMedia() error {
 	client := http.Client{
 		Timeout: 30 * time.Second,
 	}
-	file, _ := os.Create("/data/data/com.termux/files/home/storage/Ask.fm_Media/" + media.URL.String()[strings.LastIndex(media.URL.String(), "/")+1:])
+	file, _ := os.Create("./" + media.URL.String()[strings.LastIndex(media.URL.String(), "/")+1:])
 	req, err := client.Get(media.URL.String())
 	if err != nil {
 		log.Fatal(err)
