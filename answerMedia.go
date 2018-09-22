@@ -67,7 +67,7 @@ func (media media) downloadMedia() error {
 	}
 	currentUser, _ := user.Current()
 	if check, _ := exists(currentUser.HomeDir + "/storage/Ask.fm_Media"); !check {
-		os.Mkdir(currentUser.HomeDir+"/storage/Ask.fm_Media", 788)
+		os.Mkdir(currentUser.HomeDir+"/storage/Ask.fm_Media", 777)
 	}
 	file, _ := os.Create(currentUser.HomeDir + "/storage/Ask.fm_Media/" + media.URL.String()[strings.LastIndex(media.URL.String(), "/")+1:])
 	req, err := client.Get(media.URL.String())
