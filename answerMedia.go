@@ -66,7 +66,7 @@ func (media media) downloadMedia() error {
 		Timeout: 30 * time.Second,
 	}
 	if check, _ := exists("./storage/pictures/Ask.fm_Media"); !check {
-		os.Mkdir("./storage/pictures/Ask.fm_Media", 755)
+		os.Mkdir("./storage/pictures/Ask.fm_Media", 0777)
 	}
 	file, _ := os.Create("./storage/pictures/Ask.fm_Media" + media.URL.String()[strings.LastIndex(media.URL.String(), "/")+1:])
 	req, err := client.Get(media.URL.String())
