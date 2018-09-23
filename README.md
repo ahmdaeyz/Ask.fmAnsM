@@ -35,6 +35,12 @@ to get the binary (about 14+ mbs).
 
 #### [Downloading from the app directly]
 
-![1](/github.com/ahmdaeyz/Ask.fmAnsM/media/1.jpg)
+![1](https://github.com/ahmdaeyz/Ask.fmAnsM/blob/master/media/1.jpg)
+
+![2](https://github.com/ahmdaeyz/Ask.fmAnsM/blob/master/media/2.jpg)
+
+![3](https://github.com/ahmdaeyz/Ask.fmAnsM/blob/master/media/3.jpg)
+
+
 
 
