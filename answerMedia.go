@@ -17,6 +17,7 @@ type media struct {
 }
 
 func main() {
+
 	if len(os.Args) > 1 {
 		answer := os.Args[1]
 		if !strings.Contains(answer, " ") {
@@ -64,7 +65,10 @@ func (media media) downloadMedia() error {
 	client := http.Client{
 		Timeout: 30 * time.Second,
 	}
-	file, _ := os.Create("./" + media.URL.String()[strings.LastIndex(media.URL.String(), "/")+1:])
+	if check, _ := exists("./storage/pictures/Ask.fm_Media"); !check {
+		os.Mkdir("./storage/pictures/Ask.fm_Media", 755)
+	}
+	file, _ := os.Create("./storage/pictures/Ask.fm_Media" + media.URL.String()[strings.LastIndex(media.URL.String(), "/")+1:])
 	req, err := client.Get(media.URL.String())
 	if err != nil {
 		log.Fatal(err)
