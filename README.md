@@ -49,4 +49,4 @@ to get the binary (about 14+ mbs).
  Ask.fmAnsM $url
  mv -f *.png *.jpg *.gif *.mp4 /data/data/com.termux/files/home/storage/pictures/
 ```
-
+ #####Now Media will be downloaded and u will find them in ur Pictures directory !!
