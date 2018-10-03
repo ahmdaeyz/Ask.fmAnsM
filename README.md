@@ -37,7 +37,7 @@ to get the binary (about 14+ mbs).
 
 <img src="https://github.com/ahmdaeyz/Ask.fmAnsM/blob/master/media/1.jpg" width="200" height="200">
 
-<img src="https://github.com/ahmdaeyz/Ask.fmAnsM/blob/master/media/2.jpg" width="150">
+<img src="https://github.com/ahmdaeyz/Ask.fmAnsM/blob/master/media/2.jpg" width="200">
 
 <img src="https://github.com/ahmdaeyz/Ask.fmAnsM/blob/master/media/3.jpg" width="200" height="200">
 
