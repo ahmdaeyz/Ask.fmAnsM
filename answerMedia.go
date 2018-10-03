@@ -65,34 +65,24 @@ func (media media) downloadMedia() error {
 	client := http.Client{
 		Timeout: 30 * time.Second,
 	}
-	//if check, _ := exists("storage/pictures/Ask.fm_Media"); !check {
-	//	os.Mkdir("storage/pictures/Ask.fm_Media", 0777)
-	//}
-	CreateDirIfNotExist("storage/pictures/Ask.fm_Media/")
-	file, _ := os.Create("storage/pictures/Ask.fm_Media/" + media.URL.String()[strings.LastIndex(media.URL.String(), "/")+1:])
-	req, err := client.Get(media.URL.String())
-	if err != nil {
-		log.Fatal(err)
+	if os.Chdir("/data/data/com.termux/files/home/storage/pictures") != nil {
+		log.Fatal(errors.New("couldn't change directory check permissions"))
+	} else {
+		file, _ := os.Create("./" + media.URL.String()[strings.LastIndex(media.URL.String(), "/")+1:])
+		req, err := client.Get(media.URL.String())
+		if err != nil {
+			log.Fatal(err)
+		}
+		n, err := io.Copy(file, req.Body)
+		if err != nil {
+			log.Fatal(err)
+			_ = n
+		}
+		file.Close()
+		return err
 	}
-	n, err := io.Copy(file, req.Body)
-	if err != nil {
-		log.Fatal(err)
-		_ = n
-	}
-	file.Close()
-	return err
+	return nil
 }
-
-//func exists(path string) (bool, error) {
-//	_, err := os.Stat(path)
-//	if err == nil {
-//		return true, nil
-//	}
-//	if os.IsNotExist(err) {
-//		return false, nil
-//	}
-//	return true, err
-//}
 func CreateDirIfNotExist(dir string) {
 	if _, err := os.Stat(dir); os.IsNotExist(err) {
 		err = os.MkdirAll(dir, 0707)
