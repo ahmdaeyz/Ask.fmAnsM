@@ -47,6 +47,6 @@ to get the binary (about 14+ mbs).
 #!/bin/bash
  url=$1
  Ask.fmAnsM $url
- mv -f *.png *.jpg *.gif /data/data/com.termux/files/home/storage/pictures/
+ mv -f *.png *.jpg *.gif *.mp4 /data/data/com.termux/files/home/storage/pictures/
 ```
 
