@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"os/exec"
 	"strings"
 	"time"
 )
@@ -65,22 +66,20 @@ func (media media) downloadMedia() error {
 	client := http.Client{
 		Timeout: 30 * time.Second,
 	}
-	if os.Chdir("/data/data/com.termux/files/home/storage/pictures") != nil {
-		log.Fatal(errors.New("couldn't change directory check permissions"))
-	} else {
-		file, _ := os.Create("./" + media.URL.String()[strings.LastIndex(media.URL.String(), "/")+1:])
-		req, err := client.Get(media.URL.String())
-		if err != nil {
-			log.Fatal(err)
-		}
-		n, err := io.Copy(file, req.Body)
-		if err != nil {
-			log.Fatal(err)
-			_ = n
-		}
-		file.Close()
-		return err
+	file, _ := os.Create("./" + media.URL.String()[strings.LastIndex(media.URL.String(), "/")+1:])
+	req, err := client.Get(media.URL.String())
+	if err != nil {
+		log.Fatal(err)
 	}
+	n, err := io.Copy(file, req.Body)
+	if err != nil {
+		log.Fatal(err)
+		_ = n
+	}
+	file.Close()
+	return err
+	out, _ := exec.Command("mv", "-f", "*.jpg *.gif *.png storage/pictures/").Output()
+	log.Fatal(out)
 	return nil
 }
 func CreateDirIfNotExist(dir string) {
