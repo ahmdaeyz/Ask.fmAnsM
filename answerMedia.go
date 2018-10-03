@@ -8,7 +8,6 @@ import (
 	"net/http"
 	"net/url"
 	"os"
-	"os/exec"
 	"strings"
 	"time"
 )
@@ -78,9 +77,6 @@ func (media media) downloadMedia() error {
 	}
 	file.Close()
 	return err
-	out, _ := exec.Command("mv", "-f", "*.jpg *.gif *.png storage/pictures/").Output()
-	log.Fatal(out)
-	return nil
 }
 func CreateDirIfNotExist(dir string) {
 	if _, err := os.Stat(dir); os.IsNotExist(err) {

@@ -35,11 +35,18 @@ to get the binary (about 14+ mbs).
 
 #### [Downloading from the app directly]
 
-![1](https://github.com/ahmdaeyz/Ask.fmAnsM/blob/master/media/1.jpg)
+<img src="https://github.com/ahmdaeyz/Ask.fmAnsM/blob/master/media/1.jpg" width="200" height="200">
 
-![2](https://github.com/ahmdaeyz/Ask.fmAnsM/blob/master/media/2.jpg)
+<img src="https://github.com/ahmdaeyz/Ask.fmAnsM/blob/master/media/2.jpg" width="200" height="200">
 
-![3](https://github.com/ahmdaeyz/Ask.fmAnsM/blob/master/media/3.jpg)
+<img src="https://github.com/ahmdaeyz/Ask.fmAnsM/blob/master/media/3.jpg" width="200" height="200">
 
+##### To achieve that you need to make a file called termux-url-opener with the following and place it in $HOME/bin
 
+```
+#!/bin/bash
+ url=$1
+ Ask.fmAnsM $url
+ mv -f *.png *.jpg *.gif /data/data/com.termux/files/home/storage/pictures/
+```
 
